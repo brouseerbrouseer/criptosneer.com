@@ -153,9 +153,9 @@ jobs:
           Set-Content restart.txt $time
 
           git add restart.txt
-          git commit -m "restart $time"
+          git commit -m "restart $time" --allow-empty
 
-          git push https://${{ secrets.CI_LOOP_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+          git push https://${{ secrets.CI_LOOP_TOKEN }}@github.com/${{ github.repository }}.git HEAD:refs/heads/main
 
       - name: Resource usage summary
         if: always()
